@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //父构造函数
+        function Father(uname, age) {
+            this.uname = uname;
+            this.age = age;
+
+            this.log = function () {
+                console.log(1);
+            }
+        }
+        //子构造函数
+        function Son(uname, age) {
+            //这里的this指的是Son，
+            Father.call(this, uname, age);
+            this.log = function () {
+                console.log(this);
+            }
+        }
+
+
+        //继承方法
+        Father.prototype.sing = function () {
+            console.log('唱歌');
+        }
+
+
+        Son.prototype = new Father();
+        Son.prototype.constructor = Son;
+        Son.prototype.exam = function () {
+            console.log('考试');
+        }
+        var son = new Son('小红', 1);
+        var father = new Father('小明', 18);
+        console.dir(son);
+        console.log(Son.prototype);
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

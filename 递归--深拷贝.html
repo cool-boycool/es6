@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            id: 1,
+            name: '小明',
+            msg: {
+                age: 18,
+            },
+            color: ['pink', 'red'],
+        }
+        var o = {};
+        // function fn(newObj, oldObj) {
+        //     for (var k in oldObj) {
+        //         var item = oldObj[k];
+        //         if (item instanceof Array) {
+        //             newObj[k] = [];
+        //             fn(newObj[k], item);
+        //         } else if (item instanceof Object) {
+        //             newObj[k] = {};
+        //             fn(newObj[k], item);
+        //         } else {
+        //             newObj[k] = item;
+        //         }
+        //     }
+        //     return newObj;
+        // }
+
+        // console.log(fn(o, obj));
+
+        // o.msg.age = 100;
+        // console.log(o);
+        // console.log(obj);
+
+        // var a = function () { };
+        // console.log(a instanceof Object);
+        //array是数组但也是对象，所以for in循环也可以遍历数组拿到数组元素
+        // var array = ['pink', '123', '345'];
+        // for (const k in array) {
+        //     console.log(array[k]);
+
+        // }
+
+        //复盘
+
+        function deepCopy(newObj, oldObj) {
+            for (let k in oldObj) {
+                var item = oldObj[k];
+                if (item instanceof Array) {
+                    newObj[k] = [];
+                    deepCopy(newObj[k], item);
+                } else if (item instanceof Object) {
+                    newObj[k] = {};
+                    deepCopy(newObj[k], item);
+                } else {
+                    newObj[k] = item;
+                }
+
+            }
+
+            return newObj;
+        }
+        deepCopy(o, obj)
+        console.log(o);
+    </script>
+</body>
+
+</html>

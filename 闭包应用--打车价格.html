@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //打车：3公里内13块钱，3公里后每加一公里加5块钱,如果拥堵就加10块钱
+        var f = (function () {
+            var total = 0;
+            var start = 13;
+            return {
+                price: function (n) {
+                    if (n > 3) {
+                        total = start + (n - 3) * 5;
+                    } else {
+                        total = start;
+                    }
+                    return total;
+                },
+
+                yd: function (flag) {
+                    return flag ? total + 10 : total;
+                }
+
+            }
+        })()
+
+        console.log(f.price(3));
+        console.log(f.price(5));
+        console.log(f.price(10));
+        console.log(f.yd(true));
+        console.log(f.yd(false));
+
+    </script>
+</body>
+
+</html>

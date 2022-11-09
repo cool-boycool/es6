@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            id: 1,
+            name: '小明',
+            msg: {
+                age: 18,
+            },
+            color: ['pink', 'red'],
+        }
+        //浅拷贝
+        // var o = {};
+
+        // for (var k in obj) {
+        //     o[k] = obj[k];
+        // }
+        // console.log(o);
+
+        //深拷贝
+        var o = {};
+        function fn(newObj, oldObj) {
+            for (var k in oldObj) {
+                var item = oldObj[k];
+                if (item instanceof Array) {
+                    newObj[k] = [];
+                    fn(newObj[k], item);
+                } else if (item instanceof Object) {
+                    newObj[k] = {};
+                    fn(newObj[k], item);
+                } else {
+                    newObj[k] = item;
+                }
+            }
+            return newObj;
+        }
+
+        console.log(fn(o, obj));
+
+        o.msg.age = 100;
+        console.log(o);
+        console.log(obj);
+
+    </script>
+</body>
+
+</html>

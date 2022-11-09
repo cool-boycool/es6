@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //from
+
+        // let obj = {
+        //     '0': 1,
+        //     '1': 2,
+        //     'length': 2
+        // }
+
+        // let array = Array.from(obj, (item) => {
+        //     return ++item;
+        // });
+        // console.log(array);
+
+        //find()
+        // let array = [1, 2, 3, 4];
+        // let target1 = array.find((item) => {
+        //     return item == 4;
+        // })
+        // let target2 = array.some((item) => {
+        //     return item = 4;
+        // })
+
+        // let target3 = array.some((item) => {
+        //     return item == 5;
+        // })
+        // let target4 = array.find((item) => {
+        //     return item == 5;
+        // })
+
+        // console.log(target1);
+        // console.log(target2);
+        // console.log('-----------------------------------');
+        // console.log(target3);
+        // console.log(target4);
+
+        //findIndex()
+        let array = [1, 2, 3, 45, 5];
+        let index = array.findIndex((item, i) => {
+            return item > 40;
+        })
+        console.log(index);
+
+
+
+    </script>
+</body>
+
+</html>

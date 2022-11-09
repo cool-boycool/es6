@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(unmae, age) {
+            this.unmae = unmae;
+            this.age = age;
+        }
+
+        // Star.prototype.sing = function () {
+        //     console.log('唱歌');
+        // }
+        var that;
+        Star.prototype = {
+            construct: Star,
+            sing: function () {
+                console.log('唱歌');
+                that = this;
+            },
+            movie: function () {
+                console.log('演电影');
+            }
+
+        }
+        var ldh = new Star('ldh', 23)
+        // console.log(ldh.sing());
+        // console.log(Star.prototype);
+        // console.log(ldh.__proto__);
+        // console.dir(Object.prototype);\
+        // ldh.sing();
+        ldh.__proto__.sing();
+        console.log(Star.prototype === that);
+        console.log(ldh);
+    </script>
+</body>
+
+</html>

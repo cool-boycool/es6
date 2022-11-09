@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn() {
+            var num = 1;
+            //把函数作为返回值
+            return function () {
+                console.log(num);
+            }
+        }
+        //定义一个f接收返回值
+        var f = fn();
+        //可以打印fn里面num的值
+        f();
+    </script>
+</body>
+
+</html>
